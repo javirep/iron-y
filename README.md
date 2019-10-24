@@ -52,7 +52,18 @@ get("/")
 get("/login")
 post("/login")
 get("/signup")
-post("
+post("/signsup")
+get("/profile")
+post("/challenge-achieved")
+post("/challenge-failed")
+get("/cahllenge-modify")
+post("/challenge-delete")
+get("/challenge-details")
+get("/challenge-add")
+get("/social-challenges")
+get("/social-challenge-details")
+post("/social-challenge-join)
+
   
   ## Views:
   - Landing page
