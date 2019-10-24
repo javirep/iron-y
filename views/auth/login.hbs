@@ -1,0 +1,22 @@
+<img src="" alt="logo">
+
+<form action="/login" method="POST">
+
+    <label for="username">Username</label>
+
+    <input type="text" name="username">
+
+    <label for="password">Password</label>
+
+    <input type="password" name="password"> 
+    
+    {{#if errorMessage }}
+    <div>{{ errorMessage }}</div>
+    {{/if}}
+
+    <button>Log in</button>
+
+    <p> Don't have an account? <a href="/signup">Sign up</a> </p>
+</form>
+
+<a href="/"><img src="/public/images/arrow.png" alt="arrow"> Go back</a>

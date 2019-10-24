@@ -1,0 +1,25 @@
+<img src="" alt="logo">
+
+<form action="/signup" method="POST">
+    <label for="username">Username</label>
+
+    <input type="text" name="username" placeholder="Your username">
+
+    <label for="password">Password</label>
+
+    <input type="password" name="password" placeholder="********">
+
+    <label for="password">Repeat Password</label>
+        
+    <input type="password" name="repeat-password" placeholder="********">
+
+    <button type="submit">Sign Up</button>
+
+    <p> Already have an account? <a href="/login">Log in</a> </p>
+</form>
+
+{{#if errorMessage}}
+<div>{{ errorMessage }}</div>
+{{/if}}
+
+<a href="/"><img src="/public/images/arrow.png" alt="arrow"> Go back</a>
