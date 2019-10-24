@@ -9,9 +9,6 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
 
-
-
-
 mongoose
   .connect('mongodb://localhost/iron-y', { useNewUrlParser: true }) //cambiar el nombre del proyecto
   .then(x => {
@@ -36,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
-const privRouter = require ('.routes/priv')
+const privRouter = require ('./routes/priv')
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);

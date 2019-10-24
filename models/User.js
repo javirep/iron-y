@@ -6,8 +6,8 @@ const userSchema = new Schema({
   password: {type: String, required: true}, 
   motivSentence: {type: String, required: true},
   imgPath: String,
-  hp: {type: Number, default: 50},
-  exp: {type: Number, default: 0},
+  hp: {type: Number, default: 50},  //Stands for Health points
+  exp: {type: Number, default: 0},  //Stands for exp.
   personalChallenges: [ { type: Schema.Types.ObjectId, ref: "PersonalChallenge"} ],
   socialChallenges: [ { type: Schema.Types.ObjectId, ref: "SocialChallenge"} ]
 }, {
