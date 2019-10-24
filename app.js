@@ -10,8 +10,7 @@ const MongoStore = require("connect-mongo")(session);
 
 
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+
 
 mongoose
   .connect('mongodb://localhost/iron-y', { useNewUrlParser: true }) //cambiar el nombre del proyecto
@@ -34,8 +33,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
+const privRouter = require ('.routes/priv')
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/auth', authRouter);
+app.use('/priv', privRouter);
 
 
 app.use(session({
