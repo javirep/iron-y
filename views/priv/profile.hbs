@@ -11,6 +11,11 @@
     <div></div>
 </section>
 
+<div class="cards-container">
+    {{#each players}}
+    {{> playerCard this}}
+    {{/each}}
+</div>
 
 <section>
     <h2>Personal Challenges</h2>
@@ -32,7 +37,7 @@
         </div>
     </div>
 
-    <a href=""><i class="fas fa-plus"></i> Add a personal Challenge</a>
+    <a href="/priv/addPersonalChallenge"><i class="fas fa-plus"></i> Add a personal Challenge</a>
 </section>
 
 
@@ -42,7 +47,7 @@
         <div>
             <div>
                 <p>IronBeers</p>
-                <a href=""><i class="fas fa-plus"></i></a>
+                <a href=""><i class="fas fa-plus"></i> See more info</a>
             </div>
             <div>
                 <button>Achieved</button>
@@ -56,5 +61,5 @@
         </div>
     </div>
     
-    <a href=""><i class="fas fa-plus"></i> See more social Challenges</a>
+    <a href="/priv/socialChallenges"><i class="fas fa-plus"></i> See more social Challenges</a>
 </section>
