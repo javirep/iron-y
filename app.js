@@ -6,7 +6,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
+const MongoStore = require("connect-mongo")(session); 
 
 
 mongoose
@@ -30,16 +30,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-const indexRouter = require('./routes/index');
-const authRouter = require('./routes/auth');
-const privRouter = require ('./routes/priv')
-
-app.use('/', indexRouter);
-app.use('/auth', authRouter);
-app.use('/priv', privRouter);
-
-
 app.use(session({
   secret: "basic-auth-secret",
   cookie: { maxAge: 60000 },
@@ -48,6 +38,14 @@ app.use(session({
     ttl: 24 * 60 * 60 // 1 day
   })
 }));
+
+const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
+const privRouter = require ('./routes/priv')
+
+app.use('/', indexRouter);
+app.use('/auth', authRouter);
+app.use('/priv', privRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

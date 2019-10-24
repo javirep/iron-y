@@ -1,4 +1,4 @@
-const express = require ("express")
+const express = require ("express");
 const router = express.Router();
 
 //Requerimos el modelo User
@@ -25,8 +25,6 @@ router.post("/signup", (req, res, next) =>{
         })
     }
 
-
-    
     User.findOne({"username": username})
         .then(user => {
             if (user){ 
@@ -63,6 +61,39 @@ router.post("/signup", (req, res, next) =>{
 
 router.get("/login", (req, res, next)=>{
     res.render("auth/login.hbs")
+})
+
+router.post("/login", (req, res, next)=>{
+    const {username, password} = req.body;
+
+    if (username === "" || password === ""){
+        res.render("auth/login", {
+            errorMessage: "You have to provide a valid username / password"
+        })
+    }
+
+    User.findOne({ "username" : username })
+        .then (user => {
+            console.log(user)
+            if(!user){
+                res.render("auth/login", {
+                    errorMessage: "There is no user with that username"
+                })
+            }
+
+            if(bcrypt.compareSync(password, user.password)){
+                req.session.currentUser = user;
+                res.redirect("/")
+            }
+
+            else {
+                res.render("auth/login", {
+                    errorMessage: "Incorrect username / password"
+                })
+            }
+            
+        })
+        .catch(err => console.log("error finding the user: " + err))
 })
 
 module.exports = router;
