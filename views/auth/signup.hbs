@@ -1,25 +1,26 @@
-<img src="" alt="logo">
+<section class="container">
 
-<form action="/auth/signup" method="POST">
-    <label for="username">Username</label>
+    <img class="logo" src="/images/logo2.png" alt="logo">
 
-    <input type="text" name="username" placeholder="Your username">
 
-    <label for="password">Password</label>
+    <form action="/auth/signup" method="POST">
 
-    <input type="password" name="password" placeholder="********">
+        <input type="text" name="username" placeholder="User name">
 
-    <label for="password">Repeat Password</label>
+        <input type="password" name="password" placeholder="Password">
         
-    <input type="password" name="repeat-password" placeholder="********">
+        <input type="password" name="repeat-password" placeholder="Repeat Password">
 
-    <button type="submit">Sign Up</button>
+        <button class="btn" type="submit">Sign Up</button>
+
+    </form>
 
     <p> Already have an account? <a href="/auth/login">Log in</a> </p>
-</form>
 
-{{#if errorMessage}}
-<div>{{ errorMessage }}</div>
-{{/if}}
+    {{#if errorMessage}}
+    <div>{{ errorMessage }}</div>
+    {{/if}}
 
-<a href="/"><i class="fas fa-arrow-left"></i>Go back to profile</a>
+    <a href="/"><i class="fas fa-arrow-left"></i>Go back to profile</a>
+
+</section>

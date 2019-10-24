@@ -1,22 +1,26 @@
-<img src="" alt="logo">
+<section class="container">
+
+<img class="logo" src="/images/logo2.png" alt="logo">
+
 
 <form action="/auth/login" method="POST">
 
-    <label for="username">Username</label>
+    <input type="text" name="username" placeholder="User Name">
 
-    <input type="text" name="username">
-
-    <label for="password">Password</label>
-
-    <input type="password" name="password"> 
+    <input type="password" name="password" placeholder="Password"> 
     
     {{#if errorMessage }}
     <div>{{ errorMessage }}</div>
     {{/if}}
 
-    <button>Log in</button>
+    <button class="btn">Log in</button>
 
     <p> Don't have an account? <a href="/auth/signup">Sign up</a> </p>
 </form>
 
+
+
+
 <a href=""><i class="fas fa-arrow-left"></i>Go back</a>
+
+</section>
