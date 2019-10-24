@@ -47,6 +47,13 @@ Irongame
   |_ app.js
  ```
   
+## Routes:
+get("/")
+get("/login")
+post("/login")
+get("/signup")
+post("
+  
   ## Views:
   - Landing page
   - Sign up form
