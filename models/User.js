@@ -4,7 +4,7 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true}, 
-  motivSentence: {type: String, required: true},
+  motivSentence: {type: String, default: "This is my super awesome motivational sentence."},
   imgPath: String,
   hp: {type: Number, default: 50},  //Stands for Health points
   exp: {type: Number, default: 0},  //Stands for exp.
