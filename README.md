@@ -48,6 +48,7 @@ Irongame
  ```
   
 ## Routes:
+```
 get("/")
 get("/login")
 post("/login")
@@ -63,7 +64,7 @@ get("/challenge-add")
 get("/social-challenges")
 get("/social-challenge-details")
 post("/social-challenge-join)
-
+```
   
   ## Views:
   - Landing page
