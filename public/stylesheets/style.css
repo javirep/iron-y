@@ -45,6 +45,7 @@ input{
   border-bottom: 2px solid gray;
   height: 40px;
   width: 80%;
+  text-align: center;
 }
 
 ::-webkit-input-placeholder {

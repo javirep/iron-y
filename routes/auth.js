@@ -43,7 +43,7 @@ router.post("/signup", (req, res, next) =>{
             password: hashPass
         })
             .then(()=>{
-                res.redirect("/login");
+                res.redirect("/auth/login");
             })
             .catch(error=>{
                 console.log("error while creating a new user: " + error)
