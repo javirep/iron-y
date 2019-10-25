@@ -43,7 +43,7 @@ router.post("/signup", (req, res, next) =>{
             password: hashPass
         })
             .then(()=>{
-                res.redirect("/");
+                res.redirect("/login");
             })
             .catch(error=>{
                 console.log("error while creating a new user: " + error)
@@ -83,7 +83,7 @@ router.post("/login", (req, res, next)=>{
 
             if(bcrypt.compareSync(password, user.password)){
                 req.session.currentUser = user;
-                res.redirect("/")
+                res.redirect("/priv")
             }
 
             else {

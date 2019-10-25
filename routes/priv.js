@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-/* ESTE ES EL MIDDLEWARE QUE SE ASEGURA DE QUE SOLO LOS CURRENT USERS PUEDAN ACCEDER AL CONTENIDO PRIVATE
+// ESTE ES EL MIDDLEWARE QUE SE ASEGURA DE QUE SOLO LOS CURRENT USERS PUEDAN ACCEDER AL CONTENIDO PRIVATE
 router.use((req, res, next) => {
   if(req.session.currentUser){
     next();
   } else{
     res.redirect("/auth/login")
   }
-})*/
+})
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
