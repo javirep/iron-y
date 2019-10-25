@@ -15,12 +15,17 @@ router.use((req, res, next) => {
   }
 })
 
-router.get('/user/:id', async (req, res, next) => {
-  const { id } = req.params
+router.get('/user', async (req, res, next) => {
+  const id = req.session.currentUser._id
   const user = await User.findOne({ "_id": id }).populate("PersonalChallenge")
   console.log(user.personalChallenges)
   res.render("priv/profile.hbs", { user })
 });
+
+router.get('/user/challenge/:id', async (req, res, next) => {
+  res.render("priv/personalChallengeDetail.hbs")
+})
+
 
 /* GET users listing. */
 router.get("/addPersonalChallenge", (req, res, next) => {
@@ -47,7 +52,7 @@ router.post("/addPersonalChallenge", (req, res, next) => {
 
   User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $push: { "personalChallenges": personalChallenge._id } })
 
-  res.redirect("/priv/user/" + req.session.currentUser._id)
+  res.redirect("/priv/user/")
 })
 
 router.get("/socialChallenges", (req, res, next) => {
