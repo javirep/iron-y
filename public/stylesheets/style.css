@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans Condensed', sans-serif; /*a cambiar! la tenia por defecto!*/
+    font-family: 'Roboto Mono', monospace;
 }
 
 body{
@@ -20,8 +20,10 @@ body{
 }
 
 .logo {
-  width: 70%;
+  width: 40%;
+  transform: rotate(30deg);
 }
+
 
 .btn {
   background: none;
