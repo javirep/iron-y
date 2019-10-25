@@ -1,6 +1,10 @@
+<h1>Hi: {{user.username}}</h1>
+
 <div>
     <img src="{{user.imgPath}}" alt="">
+
     <h2>{{user.motivSentence}}</h2>
+
 </div>
 
 <section>
@@ -10,26 +14,13 @@
     <div>{{user.exp}}</div>
 </section>
 
-
-
 <section>
     <h2>Personal Challenges</h2>
     <div>
-        <div>
-            <div>
-                <p>Dormir min. 6h</p>
-                <a href=""><i class="fas fa-plus"></i>See more info</a>
-            </div>
-            <div>
-                <button>Achieved</button>
-                <button>Failed</button>
-            </div>
-        </div>
-
-        <div>
-            <a href=""><i class="far fa-edit"></i></a>
-            <a href=""><i class="fas fa-trash-alt"></i></a>
-        </div>
+        {{user.personalChallenges}}
+        {{#each user.personalChallenges}}
+            {{> personalChallenge this}}
+        {{/each}}
     </div>
 
     <a href="/priv/addPersonalChallenge"><i class="fas fa-plus"></i> Add a personal Challenge</a>
