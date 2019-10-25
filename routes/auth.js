@@ -28,7 +28,6 @@ router.post("/signup", (req, res, next) =>{
     User.findOne({"username": username})
         .then(user => {
             if (user){ 
-                console.log(user)
                 res.render("auth/signup.hbs", {
                 errorMessage: "This username is already taken, please user another one"
             })
@@ -42,8 +41,10 @@ router.post("/signup", (req, res, next) =>{
             username, 
             password: hashPass
         })
-            .then(()=>{
-                res.redirect("/auth/login");
+            .then((user)=>{
+                console.log(user)
+                req.session.currentUser = user;
+                res.redirect("/priv");
             })
             .catch(error=>{
                 console.log("error while creating a new user: " + error)
