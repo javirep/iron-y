@@ -6,12 +6,8 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require("express-session");
-<<<<<<< HEAD
 const MongoStore = require("connect-mongo")(session);
-=======
-const MongoStore = require("connect-mongo")(session); 
 const hbs = require('hbs')
->>>>>>> 467173aa78d1cc3697fc4c35eeba660e5a620195
 
 
 mongoose

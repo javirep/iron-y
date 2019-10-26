@@ -18,7 +18,8 @@ router.use((req, res, next) => {
 
 router.get('/user', async (req, res, next) => {
   const id = req.session.currentUser._id
-  const user = await User.findOne({ "_id": id }).populate("PersonalChallenge")
+  const user = await User.findOne({ "_id": id })
+    .populate("personalChallenges")
   console.log(user.personalChallenges)
   res.render("priv/profile.hbs", { user })
 });
@@ -36,21 +37,18 @@ router.get("/addPersonalChallenge", (req, res, next) => {
 
 router.post("/addPersonalChallenge", (req, res, next) => {
   const { name, description, modify, difficulty } = req.body
-  console.log("entered in the post router")
   const personalChallenge = new PersonalChallenge({
     name,
     description,
     modify,
     difficulty
   })
-  console.log(personalChallenge)
   personalChallenge.save(function (err, personalChallenge) {
     if (err) return console.error(err);
     console.log(personalChallenge.name + " saved in the DB.");
   });
 
   User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $push: { personalChallenges: personalChallenge._id } }, { new: true })
-    .then(user => console.log(user))
 
   res.redirect("/priv/user/")
 })
@@ -59,9 +57,10 @@ router.post("/addPersonalChallenge", (req, res, next) => {
 
 router.get("/socialChallenges", (req, res, next) => {
   SocialChallenge.find()
-    .then(data => { res.render("priv/socialChallenges.hbs", {data})
+    .then(data => {
+      res.render("priv/socialChallenges.hbs", { data })
       console.log(data)
-  })
+    })
 
     .catch(error => { console.log('Error finding socialChallenge', error) })
 })
