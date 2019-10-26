@@ -75,17 +75,16 @@ router.get('/socialChallengeDetail/:id', (req, res, next) => {
 })
 
 
-// cuando se clica a JOIN: buscar id del socialChallenge concreto. Añadir ese objeto a User.socialChallenges
-// router.get('/priv/addSocialChallenge/:id', (req, res, next) => {
-//   const { id } = req.params;
-//   const userId = req.session.currentUser._id;
-//   SocialChallenge.findById(id)
-//   User.findOneAndUpdate({ "_id": userId }, { $set: { socialChallenges: _id } }, { new: true })
-//     .then(challenge => console.log(challenge))
-
-//   res.render("/priv/socialChallenges")
-
-// })
+//cuando se clica a JOIN: buscar id del socialChallenge concreto. Añadir ese objeto a User.socialChallenges
+router.post('/addSocialChallenge/:id', (req, res, next) => {
+  console.log('Hola')
+  const { id } = req.params;
+  const userId = req.session.currentUser;
+  SocialChallenge.findById(id)
+  User.findOneAndUpdate({ "_id": userId}, { $push: { socialChallenges: id } }, { new: true })
+    .then(challenge => console.log(challenge))
+        res.redirect("/priv/socialChallenges");
+})
 
 
 
