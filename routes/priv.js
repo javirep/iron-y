@@ -49,7 +49,7 @@ router.post("/addPersonalChallenge", (req, res, next) => {
     console.log(personalChallenge.name + " saved in the DB.");
   });
 
-  User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $set: { personalChallenges: personalChallenge._id } }, { new: true })
+  User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $push: { personalChallenges: personalChallenge._id } }, { new: true })
     .then(user => console.log(user))
 
   res.redirect("/priv/user/")
