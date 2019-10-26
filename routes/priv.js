@@ -18,22 +18,15 @@ router.use((req, res, next) => {
 
 router.get('/user', async (req, res, next) => {
   const id = req.session.currentUser._id
-  const user = await User.findOne({ "_id": id })
-    .populate("personalChallenges")
-  console.log(user.personalChallenges)
+  const user = await User.findOne({ "_id": id }).
+    populate("personalChallenges")
   res.render("priv/profile.hbs", { user })
 });
-
-router.get('/user/challenge/:id', async (req, res, next) => {
-  res.render("priv/personalChallengeDetail.hbs")
-})
-
 
 /* GET users listing. */
 router.get("/addPersonalChallenge", (req, res, next) => {
   res.render("priv/addPersonalChallenge.hbs")
 })
-
 
 router.post("/addPersonalChallenge", (req, res, next) => {
   const { name, description, modify, difficulty } = req.body
@@ -53,7 +46,13 @@ router.post("/addPersonalChallenge", (req, res, next) => {
   res.redirect("/priv/user/")
 })
 
-
+router.get("/user/personalChallenge/:id", (req, res, next) => {
+  const { id } = req.params;
+  PersonalChallenge.findOne({ "_id": id })
+    .then(personalChallenge => {
+      res.render("priv/personalChallengeDetail.hbs", { personalChallenge })
+    })
+})
 
 
 router.get("/socialChallenges", (req, res, next) => {
@@ -84,6 +83,7 @@ router.post('/addSocialChallenge/:id', (req, res, next) => {
     .then(challenge => console.log(challenge))
         res.redirect("/priv/socialChallenges");
 })
+
 
 
 
