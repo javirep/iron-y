@@ -55,6 +55,7 @@ router.post("/addPersonalChallenge", (req, res, next) => {
 
 
 
+
 router.get("/socialChallenges", (req, res, next) => {
   SocialChallenge.find()
     .then(data => {
@@ -74,7 +75,6 @@ router.get('/socialChallengeDetail/:id', (req, res, next) => {
 })
 
 
-//cuando se clica a JOIN: buscar id del socialChallenge concreto. Añadir ese objeto a User.socialChallenges
 router.post('/addSocialChallenge/:id', (req, res, next) => {
   console.log('Hola')
   const { id } = req.params;

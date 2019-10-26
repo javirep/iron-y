@@ -30,21 +30,9 @@
 <section>
     <h2>Social Challenges</h2>
     <div>
-        <div>
-            <div>
-                <p>IronBeers</p>
-                <a href=""><i class="fas fa-plus"></i> See more info</a>
-            </div>
-            <div>
-                <button>Achieved</button>
-                <button>Failed</button>
-            </div>
-        </div>
-
-        <div>
-            <a href=""><i class="far fa-edit"></i></a>
-            <a href=""><i class="fas fa-trash-alt"></i></a>
-        </div>
+        {{#each user.socialChallenges}}
+            {{>profileSocialChallenges}}
+        {{/each}}
     </div>
 
     <a href="/priv/socialChallenges"><i class="fas fa-plus"></i> See more social Challenges</a>
