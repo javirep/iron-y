@@ -63,7 +63,7 @@ router.get("/socialChallenges", (req, res, next) => {
       console.log(data)
   })
 
-    .catch(error => { console.log('Error finding socialChallenges', error) })
+    .catch(error => { console.log('Error finding socialChallenge', error) })
 })
 
 
@@ -71,8 +71,22 @@ router.get('/socialChallengeDetail/:id', (req, res, next) => {
   const { id } = req.params;
   SocialChallenge.findById(id)
     .then(data => { res.render("priv/challengeDetail.hbs", { data }) })
-    .catch(error => { console.log('Error finding celebrity', error) })
+    .catch(error => { console.log('Error finding socialChallenge', error) })
 })
+
+
+// cuando se clica a JOIN: buscar id del socialChallenge concreto. Añadir ese objeto a User.socialChallenges
+// router.get('/priv/addSocialChallenge/:id', (req, res, next) => {
+//   const { id } = req.params;
+//   const userId = req.session.currentUser._id;
+//   SocialChallenge.findById(id)
+//   User.findOneAndUpdate({ "_id": userId }, { $set: { socialChallenges: _id } }, { new: true })
+//     .then(challenge => console.log(challenge))
+
+//   res.render("/priv/socialChallenges")
+
+// })
+
 
 
 module.exports = router;
