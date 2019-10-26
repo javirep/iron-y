@@ -67,5 +67,12 @@ router.get("/socialChallenges", (req, res, next) => {
 })
 
 
+router.get('/socialChallengeDetail/:id', (req, res, next) => {
+  const { id } = req.params;
+  SocialChallenge.findById(id)
+    .then(data => { res.render("priv/challengeDetail.hbs", { data }) })
+    .catch(error => { console.log('Error finding celebrity', error) })
+})
+
 
 module.exports = router;
