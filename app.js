@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session); 
+const hbs = require('hbs')
 
 
 mongoose
@@ -29,6 +30,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
 app.use(session({
   secret: "basic-auth-secret",

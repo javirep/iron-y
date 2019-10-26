@@ -3,6 +3,7 @@ var router = express.Router();
 
 const User = require("../models/User")
 const PersonalChallenge = require("../models/PersonalChallenge")
+const SocialChallenge = require("../models/SocialChallenge")
 
 // ESTE ES EL MIDDLEWARE QUE SE ASEGURA DE QUE SOLO LOS CURRENT USERS PUEDAN ACCEDER AL CONTENIDO PRIVATE
 
@@ -54,8 +55,15 @@ router.post("/addPersonalChallenge", (req, res, next) => {
   res.redirect("/priv/user/")
 })
 
+
+
 router.get("/socialChallenges", (req, res, next) => {
-  res.render("priv/socialChallenges.hbs")
+  SocialChallenge.find()
+    .then(data => { res.render("priv/socialChallenges.hbs", {data})
+      console.log(data)
+  })
+
+    .catch(error => { console.log('Error finding socialChallenges', error) })
 })
 
 
