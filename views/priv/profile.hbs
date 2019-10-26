@@ -18,9 +18,6 @@
     <h2>Personal Challenges</h2>
     <div>
         {{user.personalChallenges}}
-        {{#each user.personalChallenges}}
-            {{> personalChallenge this}}
-        {{/each}}
     </div>
 
     <a href="/priv/addPersonalChallenge"><i class="fas fa-plus"></i> Add a personal Challenge</a>
@@ -40,12 +37,12 @@
                 <button>Failed</button>
             </div>
         </div>
-    
+
         <div>
             <a href=""><i class="far fa-edit"></i></a>
             <a href=""><i class="fas fa-trash-alt"></i></a>
         </div>
     </div>
-    
+
     <a href="/priv/socialChallenges"><i class="fas fa-plus"></i> See more social Challenges</a>
 </section>
