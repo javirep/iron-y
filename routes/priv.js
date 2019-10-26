@@ -33,7 +33,6 @@ router.get("/addPersonalChallenge", (req, res, next) => {
 })
 
 
-
 router.post("/addPersonalChallenge", (req, res, next) => {
   const { name, description, modify, difficulty } = req.body
   console.log("entered in the post router")
@@ -58,5 +57,7 @@ router.post("/addPersonalChallenge", (req, res, next) => {
 router.get("/socialChallenges", (req, res, next) => {
   res.render("priv/socialChallenges.hbs")
 })
+
+
 
 module.exports = router;
