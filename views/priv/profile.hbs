@@ -17,11 +17,14 @@
 <section>
     <h2>Personal Challenges</h2>
     <div>
-        {{user.personalChallenges}}
+        {{#each user.personalChallenges}}
+        {{> personalChallenge }}
+        {{/each}}
     </div>
 
     <a href="/priv/addPersonalChallenge"><i class="fas fa-plus"></i> Add a personal Challenge</a>
 </section>
+
 
 
 <section>

@@ -41,7 +41,7 @@ router.post("/signup", async (req, res, next) => {
         .then((user) => {
             console.log(user)
             req.session.currentUser = user;
-            res.redirect("/priv/user/" + user._id);
+            res.redirect("/priv/user/");
         })
         .catch(error => {
             console.log("error while creating a new user: " + error)
@@ -74,7 +74,7 @@ router.post("/login", (req, res, next) => {
 
             if (bcrypt.compareSync(password, user.password)) {
                 req.session.currentUser = user;
-                res.redirect("/priv/user/" + user._id)
+                res.redirect("/priv/user/")
             }
 
             else {

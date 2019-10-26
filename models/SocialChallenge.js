@@ -6,6 +6,7 @@ const SocialChallengeSchema = new Schema ({
   description: {type: String, required: true},
   modify: {type: String, enum: ["hp", "exp", "both"]},
   difficulty: {type: String, enum: [ "easy", "medium", "hard"]}, 
+  image: { type: String},
 }, {
   timestamps:{
     createdAt: "created_at",

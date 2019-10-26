@@ -1,12 +1,12 @@
 <h1>Social Challenges</h1>
 
+
 <div>
-    <img src="" alt="">
-    <p></p>
-    <a href=""><i class="fas fa-plus"></i> See more info</a>
-    <button>Join</button>
+    {{#each data}}
+        {{>socialChallenges}}
+    {{/each}}
 </div>
 
-<a href="/priv"><i class="fas fa-arrow-left"></i>Go back to profile</a>
+<a href="/priv/user"><i class="fas fa-arrow-left"></i>Go back to profile</a>
 
 
