@@ -97,6 +97,8 @@ router.get("/user/personalChallenge/:id", (req, res, next) => {
 })
 
 
+
+
 router.get("/socialChallenges", (req, res, next) => {
   SocialChallenge.find()
     .then(data => {
@@ -125,7 +127,6 @@ router.post('/addSocialChallenge/:id', (req, res, next) => {
   res.redirect("/priv/socialChallenges")
     .catch(error => { console.log(error) })
 })
-
 
 //NO FUNCIONA!!
 router.post('/socialChallenge/delete/:id', (req, res, next) => {

@@ -3,7 +3,7 @@
     <img class="logo" src="/images/Iron-y.png" alt="logo">
 
 
-    <form action="/auth/login" method="POST">
+    <form class="form-auth" action="/auth/login" method="POST">
 
         <input type="text" name="username" placeholder="User Name">
 
@@ -13,12 +13,10 @@
         <div>{{ errorMessage }}</div>
         {{/if}}
 
-        <button class="btn">Log in</button>
-
-        <p> Don't have an account? <a href="/auth/signup">Sign up</a> </p>
+        <button class="btn">Log in</button>    
     </form>
 
-
+    <p> Don't have an account? <a href="/auth/signup">Sign up</a> </p>
 
 
     <a href="/"><i class="fas fa-arrow-left"></i>Go back</a>
