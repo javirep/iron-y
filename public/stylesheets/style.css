@@ -9,21 +9,30 @@
 
 body{
   width: 100%;
+  padding: 4vw;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
 
 .container{
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.cover{
+  height: 100vh;
+}
+
 .logo {
   width: 40%;
   transform: rotate(30deg);
 }
-
 
 .btn {
   background: none;
@@ -35,11 +44,10 @@ body{
   color: rgb(45, 53, 76);
 }
 
-.container form {
+.container > form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0px;
 }
 
 input{
@@ -50,6 +58,80 @@ input{
   text-align: center;
 }
 
+/* Julia, que es lo de ::-webkit ?? */
 ::-webkit-input-placeholder {
   text-align: center;
+}
+
+/* PROFILE STYLE! */
+
+.user-data{
+  display:flex;
+  margin-top: 10px;
+}
+
+.user-data img {
+  height: 50vw;
+  width: 50vw;
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 2vh;
+  margin-right: 5vw;
+}
+
+.name-container{
+  align-items: stretch;
+}
+
+.name-container h5{
+  margin-top: 2vw;
+  padding: 2vw;
+  border: 1px solid black;
+}
+
+.profile-challenges-section{
+  margin: 3vh 0;
+  align-items: flex-start;
+}
+
+.profile-challenge-partial{
+  margin: 1vh 0;
+  display: flex;
+}
+
+.profile-challenge-box{
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-around;
+  margin: 1vh 0;
+  width: 400px;
+  max-width: 75vw;
+}
+
+.profile-challenge-box-name{
+  justify-content: space-around;
+  width: 40vw;
+}
+
+.profile-challenge-box h3{
+  padding-bottom: auto;
+}
+
+.profile-challenge-box-buttons {
+  align-items: stretch;
+  justify-content: start;
+}
+
+.challenge-button{
+  margin: 5px;
+  padding: 4px;
+  width: 100px;
+  background-color: rgb(50, 195, 255);
+  border: 1px solid black;
+  font-weight: 700;
+  box-shadow: 3px 3px 2px black;
+}
+
+.red-button{
+  background-color: rgb(228, 4, 4);
 }
