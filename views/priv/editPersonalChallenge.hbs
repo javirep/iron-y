@@ -1,0 +1,26 @@
+<h1>Edit Personal Challenge!</h1>
+
+<div>
+    <form action="/priv/editPersonalChallenge/{{personalChallenge.id}}" method="POST">
+        <label for="">Name</label>
+        <input type="text" name="name" value="{{personalChallenge.name}}">
+
+        <label for="">Description</label>
+        <input type="text" name="description" value="{{personalChallenge.description}}">
+
+        <label for="">What does it modify?</label>
+        <input type="radio" name="modify" value="hp"> hp
+        <input type="radio" name="modify" value="exp"> exp
+        <input type="radio" name="modify" value="both"> both
+
+        <label for="">How difficult is it?</label>
+        <input type="radio" name="difficulty" value="easy"> Easy
+        <input type="radio" name="difficulty" value="medium"> Medium
+        <input type="radio" name="difficulty" value="hard"> Hard
+
+
+        <button type="submit">Edit the challenge</button>
+    </form>
+</div>
+
+<a href="/priv"><i class="fas fa-arrow-left"></i>Go back to profile</a>

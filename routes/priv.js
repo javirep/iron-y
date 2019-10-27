@@ -67,6 +67,27 @@ router.get("/deletePersonalChallenge/:challengeId", (req, res, next) => {
   res.redirect("/priv/user")
 })
 
+router.get("/editPersonalChallenge/:id", (req, res, next) => {
+  const { id } = req.params
+  PersonalChallenge.findById(id)
+    .then(personalChallenge => {
+      res.render("priv/editPersonalChallenge", { personalChallenge })
+    })
+})
+
+router.post("/editPersonalChallenge/:id", (req, res, next) => {
+  const { id } = req.params
+  const { name, description, modify, difficulty } = req.body
+
+  PersonalChallenge.update({ "_id": id }, {
+    $set: {
+      name, description, modify, difficulty
+    }
+  })
+    .then(() => res.redirect("/priv/user"))
+    .catch(err => console.log("error updating the personal challenge: " + err))
+})
+
 router.get("/user/personalChallenge/:id", (req, res, next) => {
   const { id } = req.params;
   PersonalChallenge.findOne({ "_id": id })
