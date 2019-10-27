@@ -19,12 +19,11 @@ router.use((req, res, next) => {
 router.get('/user', async (req, res, next) => {
   const id = req.session.currentUser._id
   const sameUser = await User.findOne({ "_id": id })
-  console.log("Este es el usuario antes del .populate: " + sameUser)
+
   const user = await User.findOne({ "_id": id })
-    // Estas dos lineas hacen que user deje de tener solo los id de personal y social challenges y tenga todos los datos de todos los challenges:
     .populate("personalChallenges")
     .populate("socialChallenges")
-  console.log("Este es el user despues de los .populate" + user)
+
   res.render("priv/profile.hbs", { user })
 });
 
@@ -89,14 +88,14 @@ router.post('/addSocialChallenge/:id', (req, res, next) => {
 })
 
 router.post('/socialChallenge/delete/:id', (req, res, next) => {
-  const {id} = req.params;
-  SocialChallenge.findByIdAndDelete({ _id: id})
-  .then (() => {
-    res.redirect('/priv/user')
-  })
-  .catch((error) => {
-    console.log(error);
-  })
+  const { id } = req.params;
+  SocialChallenge.findByIdAndDelete({ _id: id })
+    .then(() => {
+      res.redirect('/priv/user')
+    })
+    .catch((error) => {
+      console.log(error);
+    })
 })
 
 

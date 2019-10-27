@@ -1,21 +1,15 @@
-<div>
-    <div>
-        <h2>{{this.name}}</h2>
-        <a href="/priv/socialChallengeDetail/{{this.id}}"><i class="fas fa-plus"></i> See more info</a>
+<div class="profile-challenge-box">
+    <div class="container profile-challenge-box-name">
+        <h3>{{this.name}}</h3>
+        <a href="/priv/socialChallengeDetail/{{this.id}}"><i class="fas fa-plus"></i> more info</a>
     </div>
-    <div>
+    <div class="container profile-challenge-box-buttons">
         <form action="" method="POST">
-        <button>Achieved</button>
+            <button class="challenge-button">Achieved</button>
         </form>
 
         <form action="" method="POST">
-        <button>Failed</button>
-        </form>      
+            <button class="challenge-button red-button">Failed</button>
+        </form>
     </div>
-</div>
-
-<div>
-    <form action="/priv/socialChallenge/delete/{{this.id}}" method="POST">
-        <button><i class="fas fa-trash-alt"></i></button>
-    </form>
 </div>

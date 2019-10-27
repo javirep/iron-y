@@ -1,37 +1,36 @@
-<h1>Hi: {{user.username}}</h1>
-
-<div>
+<div class="user-data">
     <img src="{{user.imgPath}}" alt="">
-
-    <h2>{{user.motivSentence}}</h2>
-
+    <div class="container name-container">
+        <h1>{{user.username}}</h1>
+        <h5>{{user.motivSentence}}</h5>
+    </div>
 </div>
 
-<section>
-    <i class="fas fa-heart"></i>
-    <div>{{user.hp}}</div>
-    <p>Exp</p>
-    <div>{{user.exp}}</div>
+<section id="stats-section">
+    <p>hp: {{user.hp}} / 50</p>
+    <p>Exp: {{user.exp}}</p>
 </section>
 
-<section>
+<section class="container profile-challenges-section">
     <h2>Personal Challenges</h2>
     <div>
         {{#each user.personalChallenges}}
-        <p>{{>personalChallenge}}</p>
+        <div class="profile-challenge-partial">
+            {{>personalChallenge}}
+        </div>
         {{/each}}
     </div>
 
     <a href="/priv/addPersonalChallenge"><i class="fas fa-plus"></i> Add a personal Challenge</a>
 </section>
 
-
-
-<section>
+<section class="container profile-challenges-section">
     <h2>Social Challenges</h2>
     <div>
         {{#each user.socialChallenges}}
+        <div class="profile-challenge-partial">
             {{>profileSocialChallenges}}
+        </div>
         {{/each}}
     </div>
 
