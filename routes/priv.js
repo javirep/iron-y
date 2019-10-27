@@ -86,12 +86,16 @@ router.post('/addSocialChallenge/:id', (req, res, next) => {
   SocialChallenge.findById(id)
   User.findOneAndUpdate({ "_id": userId }, { $push: { socialChallenges: id } }, { new: true })
     .then(challenge => console.log(challenge))
-  res.redirect("/priv/socialChallenges");
+      res.redirect("/priv/socialChallenges")
+    .catch((error) => {console.log(error)})
 })
 
+
+//Falta modificar el delete. Debe borrarse del array socialChallenges de User, no de la coleccion socialChallenges. Asi como esta no funiciona
 router.post('/socialChallenge/delete/:id', (req, res, next) => {
   const { id } = req.params;
-  SocialChallenge.findByIdAndDelete({ _id: id })
+  const userId = req.session.currentUser;
+  User.update({ "_id": userId }, { $pull: { "socialChallenges._id": id }})
     .then(() => {
       res.redirect('/priv/user')
     })
