@@ -80,7 +80,6 @@ router.get('/socialChallengeDetail/:id', (req, res, next) => {
 
 
 router.post('/addSocialChallenge/:id', (req, res, next) => {
-  // console.log('Hola')
   const { id } = req.params;
   const userId = req.session.currentUser;
   SocialChallenge.findById(id)
