@@ -33,6 +33,7 @@ router.get("/addPersonalChallenge", (req, res, next) => {
 })
 
 router.post("/addPersonalChallenge", (req, res, next) => {
+  console.log("entered the route")
   const { name, description, modify, difficulty } = req.body
   const personalChallenge = new PersonalChallenge({
     name,
@@ -45,7 +46,8 @@ router.post("/addPersonalChallenge", (req, res, next) => {
     console.log(personalChallenge.name + " saved in the DB.");
   });
 
-  User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $push: { personalChallenges: personalChallenge._id } }, { new: true })
+  User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $push: { personalChallenges: personalChallenge.id } }, { new: true })
+    .then(user => console.log("I dont know what this is for, but without this then it doesn't work"))
 
   res.redirect("/priv/user/")
 })

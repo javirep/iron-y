@@ -39,7 +39,6 @@ router.post("/signup", async (req, res, next) => {
         password: hashPass
     })
         .then((user) => {
-            console.log(user)
             req.session.currentUser = user;
             res.redirect("/priv/user/");
         })
