@@ -8,13 +8,14 @@
         <button>Achieved</button>
         </form>
 
-        <form action="">
+        <form action="" method="POST">
         <button>Failed</button>
         </form>      
     </div>
 </div>
 
 <div>
-    <a href=""><i class="far fa-edit"></i></a>
-    <a href=""><i class="fas fa-trash-alt"></i></a>
+    <form action="/priv/socialChallenge/delete/{{this.id}}" method="POST">
+        <button><i class="fas fa-trash-alt"></i></button>
+    </form>
 </div>

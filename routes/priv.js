@@ -88,6 +88,17 @@ router.post('/addSocialChallenge/:id', (req, res, next) => {
   res.redirect("/priv/socialChallenges");
 })
 
+router.post('/socialChallenge/delete/:id', (req, res, next) => {
+  const {id} = req.params;
+  SocialChallenge.findByIdAndDelete({ _id: id})
+  .then (() => {
+    res.redirect('/priv/user')
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+})
+
 
 
 
