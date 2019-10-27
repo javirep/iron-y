@@ -18,7 +18,6 @@ router.use((req, res, next) => {
 
 router.get('/user', async (req, res, next) => {
   const id = req.session.currentUser._id
-  const sameUser = await User.findOne({ "_id": id })
 
   const user = await User.findOne({ "_id": id })
     .populate("personalChallenges")
@@ -50,6 +49,22 @@ router.post("/addPersonalChallenge", (req, res, next) => {
     .then(user => console.log("I dont know what this is for, but without this then it doesn't work"))
 
   res.redirect("/priv/user/")
+})
+
+router.get("/deletePersonalChallenge/:challengeId", (req, res, next) => {
+  const { challengeId } = req.params
+  console.log(challengeId)
+  PersonalChallenge.findByIdAndDelete(challengeId)
+    .then(personalChallenge => console.log("The following Personal challenge has been deleted: " + personalChallenge))
+    .catch(err => console.log("error while finding and deleting the personal challenge: " + err))
+
+  User.findById(req.session.currentUser)
+    .then(user => {
+      console.log("the user found is: " + user)
+      user.personalChallenges.splice(1, 0, challengeId)
+    })
+    .catch(err => console.log("error while finding the current user and deleting the personal challenge: " + err))
+  res.redirect("/priv/user")
 })
 
 router.get("/user/personalChallenge/:id", (req, res, next) => {
@@ -86,8 +101,8 @@ router.post('/addSocialChallenge/:id', (req, res, next) => {
   SocialChallenge.findById(id)
   User.findOneAndUpdate({ "_id": userId }, { $push: { socialChallenges: id } }, { new: true })
     .then(challenge => console.log(challenge))
-      res.redirect("/priv/socialChallenges")
-    .catch((error) => {console.log(error)})
+  res.redirect("/priv/socialChallenges")
+    .catch((error) => { console.log(error) })
 })
 
 
@@ -95,7 +110,7 @@ router.post('/addSocialChallenge/:id', (req, res, next) => {
 router.post('/socialChallenge/delete/:id', (req, res, next) => {
   const { id } = req.params;
   const userId = req.session.currentUser;
-  User.update({ "_id": userId }, { $pull: { "socialChallenges._id": id }})
+  User.update({ "_id": userId }, { $pull: { "socialChallenges._id": id } })
     .then(() => {
       res.redirect('/priv/user')
     })
