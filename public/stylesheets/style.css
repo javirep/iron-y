@@ -4,12 +4,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto Mono', monospace;
 }
 
 body{
   width: 100%;
   padding: 4vw;
+  font-family: 'Roboto Mono', monospace;
+  color: #2d354c;
 }
 
 a{
@@ -162,3 +163,41 @@ h2 {
 
 
 /*SOCIAL CHALLENGES*/
+.socialChallenge-box > img {
+  width: 150px;
+}
+
+.socialChallenge-box {
+  display: flex;
+  flex-direction: row;
+  margin: 25px 0;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.socialChallenge-content{
+  width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 5px 10px;
+}
+
+.socialChallenge-links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.socialChallenge-links button{
+  all: unset;
+  padding: 5px 10px;
+  background-color: chartreuse;
+  border-radius: 5px;
+  border: 1px solid #2d354c;
+}

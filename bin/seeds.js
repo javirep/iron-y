@@ -11,7 +11,7 @@ const socialChallenges = [
         description: "Tu oportunidad para destacar otras habilidades! si eres de los buenos ven a ganar! si eres de los malos haznos un favor y no faltes hecharnos unas risas es lo que queremos todos, te esperamos. IronPong para los que no lo pillen, es un merge entre Ironhack y ping pong. ¿Que significa? Facil! Organizamos un torneo de ping pong con todo ironhacker que tenga ganas de compartir un rato con otros Ironhackers.",
         modify: "hp",
         difficulty: "easy", 
-        image: "https://cdn.pixabay.com/photo/2019/06/22/11/21/table-tennis-4291378__340.jpg",
+        image: "https://cdn.pixabay.com/photo/2019/01/21/13/58/table-tenis-3946115_960_720.jpg",
     },
     {
         name: "conncetPeople",

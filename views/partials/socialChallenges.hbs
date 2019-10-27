@@ -1,13 +1,15 @@
 <div class="socialChallenge-box">
     <img src="{{image}}" alt="emotions-connection">
 
-    <div>
-    <h2>{{name}}</h2>
-    <a href="/priv/socialChallengeDetail/{{id}}"><i class="fas fa-plus"></i> See more info</a>
-    
-    <form action="/priv/addSocialChallenge/{{id}}" method="POST">
-        <button>Join</button>
-    </form>
+    <div class="socialChallenge-content">
+        <h2>{{name}}</h2>
+
+        <div class="socialChallenge-links">
+            <a href="/priv/socialChallengeDetail/{{id}}"><i class="fas fa-plus"></i>info</a>    
+            <form action="/priv/addSocialChallenge/{{id}}" method="POST">
+                <button>Join</button>
+            </form>
+        </div>
     </div>
     
 </div>
