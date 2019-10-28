@@ -8,7 +8,6 @@
 
 body{
   width: 100%;
-  padding: 4vw;
   font-family: 'Roboto Mono', monospace;
   color: #2d354c;
 }
@@ -22,6 +21,22 @@ body{
   background-color: rgb(238, 234, 234);
   position: fixed;
   bottom: 0;
+}
+
+h1{
+  font-size: 30px;
+}
+
+h2{
+  font-size: 24px;
+}
+
+h3{
+  font-size: 18px;
+}
+
+p{
+  font-size: 16px;
 }
 
 a{
@@ -86,46 +101,50 @@ input{
   text-align: center;
 }
 
-
-
-
 /* PROFILE STYLE! */
+
+.main-profile-container{
+  padding: 3vw;
+  color: white;
+  background-color: #2D354C;
+}
 
 .user-data{
   display:flex;
-  margin-top: 10px;
+  justify-content: space-between;
+  text-align: end;
+  margin-bottom: 4vw;
 }
 
 .user-data img {
-  width: 30vw;
+  width: 35vw;
+  height: 35vw;
   max-width: 200px;
   max-height: 200px;
-  margin-bottom: 2vh;
-  margin-right: 5vw;
 }
-
 
 .name-container{
   align-items: stretch;
+  justify-content: flex-start;
 }
 
-.name-container h1{
-  font-size: 20px;
+.main-profile-container h1{
+  font-size: 30px;
+  margin-bottom: 7vw;
 }
 
-.name-container h5{
-  margin-top: 2vw;
+.main-profile-container h5{
   padding: 2vw;
-  border: 1px solid #909296;
-  border-radius: 5px;
+  font-size: 18px;
 }
 
-h2 {
-  font-size: 20px;
+.profile-challenges-section h2 {
+  padding-left: 2vw;
+  font-size: 24px;
 }
 
 .profile-challenges-section{
-  margin: 5vh 0;
+  margin: 3.5vh 2vw;
   align-items: flex-start;
 }
 
@@ -135,22 +154,29 @@ h2 {
 }
 
 .profile-challenge-box{
-  border: 2px solid #909296;
+  border: 2px solid #2D354C;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 1vh 0;
+  padding: 1% 3%;
   width: 400px;
-  max-width: 75vw;
-  border-radius: 5px;
+  max-width: 95vw;
+  background-color: #EEEAEA;
 }
 
 .profile-challenge-box-name{
   justify-content: space-around;
-  width: 40vw;
+  align-items: flex-start;
 }
 
-.profile-challenge-box h3{
-  padding-bottom: auto;
+.profile-challenge-icons{
+  display: flex;
+  padding-left: 4vw;
+  justify-content: space-between;
+}
+
+.profile-challenge-icons i{
+  margin: 0 2vw;
 }
 
 .profile-challenge-box-buttons {
@@ -162,16 +188,27 @@ h2 {
   margin: 5px;
   padding: 4px;
   width: 100px;
-  background-color: rgb(50, 195, 255);
-  border: 1px solid black;
+  background-color: #72C1ED;
+  border: 1px solid #2D354C;
   font-weight: 700;
-  box-shadow: 3px 3px 2px black;
+  box-shadow: 3px 3px 2px #2D354C;
 }
 
 .red-button{
-  background-color: rgb(228, 4, 4);
+  background-color: #E43A3A;
+  color: white;
 }
 
+/* ADD CHALLENGES */
+.dark-blue-container{
+  color: white;
+  background: #2D354C;
+  padding: 5vw;
+}
+
+.dark-blue-container{
+
+}
 
 /*SOCIAL CHALLENGES*/
 .socialChallenge-box > img {

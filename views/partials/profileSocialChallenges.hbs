@@ -1,8 +1,15 @@
 <div class="profile-challenge-box">
     <div class="container profile-challenge-box-name">
         <h3>{{this.name}}</h3>
-        <a href="/priv/socialChallengeDetail/{{this.id}}"><i class="fas fa-plus"></i> more info</a>
+
+        <div class="profile-challenge-icons">
+            <a href="/priv/socialChallengeDetail/{{this.id}}"> info</a>
+            <form action="/priv/socialChallenge/delete/{{this.id}}" method="POST">
+                <button><i class="far fa-trash-alt"></i></button>
+            </form>
+        </div>
     </div>
+
     <div class="container profile-challenge-box-buttons">
         <form action="" method="POST">
             <button class="challenge-button">Achieved</button>
@@ -13,10 +20,3 @@
         </form>
     </div>
 </div>
-
-<div class="container profile-challenge-a">
-    <form action="/priv/socialChallenge/delete/{{this.id}}" method="POST">
-        <button><i class="far fa-trash-alt"></i></button>
-    </form> 
-</div>
-
