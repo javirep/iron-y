@@ -16,4 +16,3 @@ const PersonalChallengeSchema = new Schema({
 const PersonalChallenge = mongoose.model("PersonalChallenge", PersonalChallengeSchema);
 
 module.exports = PersonalChallenge
-

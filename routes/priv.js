@@ -99,9 +99,31 @@ router.post("/achievedPersonalChallenge/:id", async (req, res, next) => {
 
   const personalChallenge = await PersonalChallenge.findById(challengeId)
 
-  const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $inc: { hp: personalChallenge.difficulty } }, { new: true })
+  if (personalChallenge.modify === "hp" || personalChallenge.modify === "both") {
+    const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $inc: { hp: personalChallenge.difficulty } }, { new: true })
 
-  req.session.currentUser = userUpdated
+    req.session.currentUser = userUpdated
+  }
+
+  if (personalChallenge.modify === "exp" || personalChallenge.modify === "both") {
+    const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $inc: { exp: personalChallenge.difficulty } }, { new: true })
+
+    req.session.currentUser = userUpdated
+  }
+
+  res.redirect("/priv/user")
+})
+
+router.post("/failedPersonalChallenge/:id", async (req, res, next) => {
+  const challengeId = req.params.id;
+
+  const personalChallenge = await PersonalChallenge.findById(challengeId)
+
+  if (personalChallenge.modify === "hp" || personalChallenge.modify === "both") {
+    const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $inc: { hp: -personalChallenge.difficulty } }, { new: true })
+
+    req.session.currentUser = userUpdated
+  }
 
   res.redirect("/priv/user")
 })
