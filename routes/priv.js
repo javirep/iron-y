@@ -77,6 +77,10 @@ router.post("/editPersonalChallenge/:id", (req, res, next) => {
   const { id } = req.params
   const { name, description, modify, difficulty } = req.body
 
+  if (!name || !description || !modify || !difficulty) {
+    res.render("priv/editPersonalChallenge", { personalChallenge })
+  }
+
   PersonalChallenge.update({ "_id": id }, {
     $set: {
       name, description, modify, difficulty
@@ -101,6 +105,13 @@ router.post("/achievedPersonalChallenge/:id", async (req, res, next) => {
 
   if (personalChallenge.modify === "hp" || personalChallenge.modify === "both") {
     const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $inc: { hp: personalChallenge.difficulty } }, { new: true })
+
+    if (userUpdated.hp > 50) {
+      console.log("Live cannot be over 50 hp")
+      const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $set: { hp: 50 } }, { new: true })
+    }
+
+
 
     req.session.currentUser = userUpdated
   }

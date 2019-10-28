@@ -1,26 +1,31 @@
-<h1>New Personal Challenge!</h1>
+<div class="dark-blue-container">
+    <h1>New Challenge!</h1>
+    <div class="white-container">
+        <div>
+            <form action="/priv/addPersonalChallenge" method="POST">
+                <label for="">Name</label>
+                <input type="text" name="name" placeholder="What is you new Challenge?">
 
-<div>
-    <form action="/priv/addPersonalChallenge" method="POST">
-        <label for="">Name</label>
-        <input type="text" name="name" placeholder="What is you new Challenge?">
+                <label for="">Description</label>
+                <input type="text" name="description" placeholder="Give more details about your challenge">
 
-        <label for="">Description</label>
-        <input type="text" name="description" placeholder="Give more details about your challenge">
+                <label for="">What does it modify?</label>
+                <div class="radio-buttons-container">
+                    <input type="radio" name="modify" value="hp"> hp
+                    <input type="radio" name="modify" value="exp"> exp
+                    <input type="radio" name="modify" value="both"> both
+                </div>
 
-        <label for="">What does it modify?</label>
-        <input type="radio" name="modify" value="hp"> hp
-        <input type="radio" name="modify" value="exp"> exp
-        <input type="radio" name="modify" value="both"> both
+                <label for="">How difficult is it?</label>
+                <div class="radio-buttons-container">
+                    <input type="radio" name="difficulty" value=1> Easy
+                    <input type="radio" name="difficulty" value=3> Medium
+                    <input type="radio" name="difficulty" value=5> Hard
+                </div>
 
-        <label for="">How difficult is it?</label>
-        <input type="radio" name="difficulty" value=1> Easy
-        <input type="radio" name="difficulty" value=3> Medium
-        <input type="radio" name="difficulty" value=5> Hard
-
-
-        <button type="submit">Add the challenge</button>
-    </form>
+                <button type="submit">ADD</button>
+            </form>
+        </div>
+        <a href="/priv/user"><i class="fas fa-arrow-left"></i>Go back to profile</a>
+    </div>
 </div>
-
-<a href="/priv/user"><i class="fas fa-arrow-left"></i>Go back to profile</a>

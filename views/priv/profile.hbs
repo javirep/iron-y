@@ -1,15 +1,16 @@
-<div class="user-data">
-    <img src="{{user.imgPath}}" alt="">
-    <div class="container name-container">
-        <h1>{{user.username}}</h1>
-        <h5>{{user.motivSentence}}</h5>
+<div class="main-profile-container">
+    <div class="user-data">
+        <img src="{{user.imgPath}}" alt="">
+        <div class="container name-container">
+            <h1>{{user.username}}</h1>
+            <div>
+                <p>hp: {{user.hp}} / 50</p>
+                <p>Exp: {{user.exp}}</p>
+            </div>
+        </div>
     </div>
+    <h5>{{user.motivSentence}}</h5>
 </div>
-
-<section id="stats-section">
-    <p>hp: {{user.hp}} / 50</p>
-    <p>Exp: {{user.exp}}</p>
-</section>
 
 <section class="container profile-challenges-section">
     <h2>Personal Challenges</h2>
