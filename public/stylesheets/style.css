@@ -13,6 +13,17 @@ body{
   color: #2d354c;
 }
 
+.toolbar {
+  height: 15px;
+  width: 100%;
+  background-color: rgb(238, 234, 234);
+  height: 45px;
+  width: 100%;
+  background-color: rgb(238, 234, 234);
+  position: fixed;
+  bottom: 0;
+}
+
 a{
   text-decoration: none;
   color: black;
