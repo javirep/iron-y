@@ -58,13 +58,11 @@ router.get("/deletePersonalChallenge/:challengeId", (req, res, next) => {
     .then(personalChallenge => console.log("The following Personal challenge has been deleted: " + personalChallenge))
     .catch(err => console.log("error while finding and deleting the personal challenge: " + err))
 
-  User.findById(req.session.currentUser)
-    .then(user => {
-      console.log("the user found is: " + user)
-      user.personalChallenges.splice(1, 0, challengeId)
-    })
-    .catch(err => console.log("error while finding the current user and deleting the personal challenge: " + err))
-  res.redirect("/priv/user")
+  console.log("previusly user: " + req.session.currentUser)
+
+  User.findByIdAndUpdate({ "_id": req.session.currentUser._id }, { $pull: { personalChallenges: challengeId } })
+    .then(() => res.redirect("/priv/user/"))
+
 })
 
 router.get("/editPersonalChallenge/:id", (req, res, next) => {
@@ -135,8 +133,8 @@ router.post('/socialChallenge/delete/:id', (req, res, next) => {
   User.findById(userId)
     .then(user => {
       const i = user.socialChallenges.indexOf(id)
-      if( i!== -1){user.socialChallenges.splice(i, 1)}
-      
+      if (i !== -1) { user.socialChallenges.splice(i, 1) }
+
       res.redirect('/priv/user')
     })
     .catch(error => {
