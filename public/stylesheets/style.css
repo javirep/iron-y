@@ -13,14 +13,15 @@ body{
 }
 
 .toolbar {
-  height: 15px;
-  width: 100%;
   background-color: rgb(238, 234, 234);
   height: 45px;
   width: 100%;
   background-color: rgb(238, 234, 234);
   position: fixed;
   bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 h1{
@@ -41,8 +42,9 @@ p{
 
 a{
   text-decoration: none;
-  color: black;
   cursor: pointer;
+  color: #2d354c;
+  font-size: larger;
 }
 
 .container{

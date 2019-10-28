@@ -188,7 +188,7 @@ router.post('/addSocialChallenge/:id', (req, res, next) => {
 })
 
 
-router.post('/socialChallenge/delete/:id', (req, res, next) => {
+router.get('/socialChallenge/delete/:id', (req, res, next) => {
   const { id } = req.params;
   const userId = req.session.currentUser._id;
   User.findByIdAndUpdate({ "_id": userId }, { $pull: { socialChallenges: id } })
