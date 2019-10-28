@@ -26,7 +26,7 @@ router.get('/user', async (req, res, next) => {
   res.render("priv/profile.hbs", { user })
 });
 
-/* GET users listing. */
+/* PERSONAL CHALLENGES ROUTES */
 router.get("/addPersonalChallenge", (req, res, next) => {
   res.render("priv/addPersonalChallenge.hbs")
 })
@@ -62,7 +62,7 @@ router.get("/deletePersonalChallenge/:challengeId", (req, res, next) => {
 
   User.findByIdAndUpdate({ "_id": req.session.currentUser._id }, { $pull: { personalChallenges: challengeId } })
     .then(() => res.redirect("/priv/user/"))
-
+    .catch(err => console.log("error while deleting a personal challenge from DB: " + err))
 })
 
 router.get("/editPersonalChallenge/:id", (req, res, next) => {
@@ -94,8 +94,19 @@ router.get("/user/personalChallenge/:id", (req, res, next) => {
     })
 })
 
+router.post("/achievedPersonalChallenge/:id", async (req, res, next) => {
+  const challengeId = req.params.id;
 
+  const personalChallenge = await PersonalChallenge.findById(challengeId)
 
+  const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $inc: { hp: personalChallenge.difficulty } }, { new: true })
+
+  req.session.currentUser = userUpdated
+
+  res.redirect("/priv/user")
+})
+
+// SOCIAL CHALLENGES ROUTES 
 
 router.get("/socialChallenges", (req, res, next) => {
   SocialChallenge.find()

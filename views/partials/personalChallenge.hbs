@@ -4,12 +4,12 @@
         <a href="/priv/user/personalChallenge/{{this._id}}"><i class="fas fa-plus"></i>more info</a>
     </div>
     <div class="container profile-challenge-box-buttons">
-        <form>
+        <form action="/priv/achievedPersonalChallenge/{{this._id}}" method="POST">
             <button class="challenge-button">Achieved</button>
         </form>
 
-        <form>
-            <button class="challenge-button red-button">Failed</button>
+        <form action="/priv/achievedPersonalChallenge/{{this._id}}" method="POST">
+            <button class="challenge-button">Failed</button>
         </form>
     </div>
 </div>
