@@ -22,7 +22,7 @@ router.get('/user', async (req, res, next) => {
   const user = await User.findOne({ "_id": id })
     .populate("personalChallenges")
     .populate("socialChallenges")
-
+  console.log(user)
   res.render("priv/profile.hbs", { user })
 });
 
@@ -108,14 +108,31 @@ router.post("/achievedPersonalChallenge/:id", async (req, res, next) => {
 
 // SOCIAL CHALLENGES ROUTES 
 
-router.get("/socialChallenges", (req, res, next) => {
-  SocialChallenge.find()
-    .then(data => {
-      res.render("priv/socialChallenges.hbs", { data })
-      console.log(data)
-    })
+router.get("/socialChallenges", async (req, res, next) => {
+  try {
 
-    .catch(error => { console.log('Error finding socialChallenge', error) })
+    const { _id } = req.session.currentUser
+    const data = await SocialChallenge.find()
+    const challengesFromUser = await User.findOne({ _id })
+    const newChallenges = []
+
+    for (challenge of data) {
+      let iHaveIt = false
+      challengesFromUser.socialChallenges.forEach(userC => {
+        if (challenge._id.equals(userC._id)) {
+          iHaveIt = true
+        }
+      })
+      if (!iHaveIt) {
+        newChallenges.push(challenge)
+      }
+    }
+    res.render("priv/socialChallenges.hbs", { newChallenges })
+  }
+  catch (error) {
+    console.log('Error finding socialChallenge', error)
+  }
+
 })
 
 
@@ -137,23 +154,13 @@ router.post('/addSocialChallenge/:id', (req, res, next) => {
     .catch(error => { console.log(error) })
 })
 
-//NO FUNCIONA!!
+
 router.post('/socialChallenge/delete/:id', (req, res, next) => {
   const { id } = req.params;
-  const userId = req.session.currentUser;
-  User.findById(userId)
-    .then(user => {
-      const i = user.socialChallenges.indexOf(id)
-      if (i !== -1) { user.socialChallenges.splice(i, 1) }
-
-      res.redirect('/priv/user')
-    })
-    .catch(error => {
-      console.log("error while finding the current user and deleting the social challenge: " + err)
-    })
-})
-
-
+  const userId = req.session.currentUser._id;
+  User.findByIdAndUpdate({ "_id": userId }, { $pull: { socialChallenges: id } })
+    .then(() => res.redirect('/priv/user/'))
+});
 
 
 module.exports = router;
