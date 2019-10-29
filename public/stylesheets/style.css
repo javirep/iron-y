@@ -14,7 +14,7 @@ body{
 
 .toolbar {
   background-color: rgb(238, 234, 234);
-  height: 45px;
+  height: 8vh;
   width: 100%;
   background-color: rgb(238, 234, 234);
   position: fixed;
@@ -206,7 +206,7 @@ input{
   color: white;
   background: #2D354C;
   padding: 5vw;
-  height: 92vh;
+  height: 100vh;
 }
 
 .white-container{
@@ -217,7 +217,7 @@ input{
 
 /*SOCIAL CHALLENGES*/
 .socialChallenge-box > img {
-  width: 150px;
+  width: 20vh;
 }
 
 .socialChallenge-box {
@@ -225,9 +225,11 @@ input{
   flex-direction: row;
   margin: 25px 0;
   border: 1px solid gray;
-  border-radius: 5px;
   padding: 5px;
+  background-color: #EEEAEA;
+  color: #2D354C;
 }
+
 
 .socialChallenge-content{
   width: 100%;
@@ -250,7 +252,6 @@ input{
 .socialChallenge-links button{
   all: unset;
   padding: 5px 10px;
-  background-color: chartreuse;
-  border-radius: 5px;
+  background-color: #E2D029;
   border: 1px solid #2d354c;
 }
