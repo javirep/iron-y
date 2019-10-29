@@ -1,6 +1,6 @@
 <section class="container cover">
 
-    <img class="logo" src="/images/Iron-y.png" alt="logo">
+    <img class="logo" src="/images/Logo.png" alt="logo">
     
 
     <form class="form-auth" action="/auth/signup" method="POST">
@@ -15,12 +15,12 @@
 
     </form>
 
-    <p> Already have an account? <a href="/auth/login">Log in</a> </p>
+    <h3> Already have an account? <a href="/auth/login">Log in</a> </h3>
 
     {{#if errorMessage}}
     <div>{{ errorMessage }}</div>
     {{/if}}
 
-    <a href="/"><i class="fas fa-arrow-left"></i> Go back</a>
+    {{!-- <a href="/"><i class="fas fa-arrow-left"></i> Go back</a> --}}
 
 </section>
