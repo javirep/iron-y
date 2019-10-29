@@ -1,28 +1,32 @@
-<h1>Edit Personal Challenge!</h1>
+<div class="dark-blue-container">
+    <h1>New Challenge!</h1>
+    <div class="white-container">
+        <form id="challenge-form" class="container" action="/priv/editPersonalChallenge/{{personalChallenge.id}}"
+            method="POST">
+            <h2 for="">Name:</h2>
+            <input type="text" name="name" placeholder="What is you new Challenge?" value="{{personalChallenge.name}}">
 
-<div>
-    <form action="/priv/editPersonalChallenge/{{personalChallenge.id}}" method="POST">
-        <label for="">Name</label>
-        <input type="text" name="name" value="{{personalChallenge.name}}">
+            <h2 for="">Description:</h2>
+            <textarea form="challenge-form" name="description"
+                placeholder="Give more details about your challenge">{{personalChallenge.description}}</textarea>
 
-        <label for="">Description</label>
-        <input type="text" name="description" value="{{personalChallenge.description}}">
+            <h2 for="">What does it modify?</h2>
+            <div class="radio-buttons-container">
+                <input type="radio" name="modify" value="hp"> hp
+                <input type="radio" name="modify" value="exp"> exp
+                <input type="radio" name="modify" value="both"> both
+            </div>
 
-        <label for="">What does it modify?</label>
-        <input type="radio" name="modify" value="hp"> hp
-        <input type="radio" name="modify" value="exp"> exp
-        <input type="radio" name="modify" value="both"> both
+            <h2>How difficult is it?</h2>
+            <div class="radio-buttons-container">
+                <input type="radio" name="difficulty" value=1> Easy
+                <input type="radio" name="difficulty" value=3> Medium
+                <input type="radio" name="difficulty" value=5> Hard
+            </div>
 
-        <label for="">How difficult is it?</label>
-        <input type="radio" name="difficulty" value=1> Easy
-        <input type="radio" name="difficulty" value=3> Medium
-        <input type="radio" name="difficulty" value=5> Hard
-
-
-        <button type="submit">Edit the challenge</button>
-    </form>
+            <button class="yellow-button" type="submit">Add the challenge</button>
+        </form>
+    </div>
 </div>
 
-<a href="/priv/user"><i class="fas fa-arrow-left"></i>Go back to profile</a>
-
-{{>toolbar}} 
+{{>toolbar}}

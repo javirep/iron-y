@@ -26,6 +26,7 @@ body{
 
 h1{
   font-size: 30px;
+  font-weight: normal;
 }
 
 h2{
@@ -35,6 +36,7 @@ h2{
 
 h3{
   font-size: 18px;
+  font-weight: normal;
 }
 
 p{
@@ -143,6 +145,32 @@ input{
   font-size: 18px;
 }
 
+.bar{
+  position: relative;
+  height: 27px;
+  align-items: flex-start;
+  width: 50vw;
+  border: 1px solid white;
+  margin: 5px 0;
+}
+
+.life-bar{
+  float: right;
+  height: 25px;
+  padding-right: 5px;
+  background: #E43A3A;
+  overflow: visible;
+}
+
+.blue{
+  background: #72C1ED;
+}
+
+.absolute{
+  margin-left: 5px;
+  position: absolute;
+}
+
 .profile-challenges-section h2 {
   padding-left: 2vw;
   font-size: 24px;
@@ -209,7 +237,7 @@ input{
   color: white;
   background: #2D354C;
   padding: 5vw;
-  height: 100vh;
+  height: 92vh;
 }
 
 .white-container{
