@@ -15,7 +15,7 @@ body{
 
 .toolbar {
   background-color: rgb(238, 234, 234);
-  height: 8vh;
+  height: 10vh;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -62,6 +62,11 @@ a{
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.back{
+  align-self: start;
+  margin-left: 20px;
 }
 
 .form-auth{
@@ -156,7 +161,7 @@ input{
   position: relative;
   height: 27px;
   align-items: flex-start;
-  width: 50vw;
+  width: 55vw;
   border: 1px solid white;
   margin: 5px 0;
 }
@@ -334,6 +339,7 @@ textarea{
   padding: 5px 10px;
   background-color: #E2D029;
   border: 1px solid #2d354c;
+  box-shadow: 3px 3px 2px #2D354C;
 }
 
 .challenge-detail{
