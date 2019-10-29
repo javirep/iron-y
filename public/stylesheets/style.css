@@ -10,6 +10,7 @@ body{
   width: 100%;
   font-family: 'Roboto Mono', monospace;
   color: #2d354c;
+  padding-bottom: 8vh;
 }
 
 .toolbar {
@@ -80,13 +81,15 @@ a{
 .btn {
   background: none;
   text-decoration: none;
-  border-radius: 50px;
-  border: 2px solid rgb(50, 195, 255);
+  background-color: #72C1ED;
+  border: 1px solid #2D354C;
   margin: 20px;
   color: rgb(45, 53, 76);
   padding: 10px 0;
   width: 80%;
   text-align: center;
+  font-weight: 700;
+  box-shadow: 3px 3px 2px #2D354C;
 }
 
 .container > form {
@@ -254,4 +257,16 @@ input{
   padding: 5px 10px;
   background-color: #E2D029;
   border: 1px solid #2d354c;
+}
+
+.challenge-detail{
+  color: white;
+  background: #2D354C;
+  padding: 5vw;
+  height: 100vh;
+}
+
+.challenge-detail img {
+  width: 90vw;
+  margin: 20px 0;
 }
