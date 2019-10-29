@@ -1,10 +1,14 @@
 <section class="dark-blue-container">
+
     <h1>Social Challenges</h1>
     <div>
         {{#each newChallenges}}
         {{>socialChallenges}}
+        {{else}}
+        <p>There are no new Challenges</p>
         {{/each}}
     </div>
+
 </section>
 
 {{>toolbar}} 
