@@ -9,11 +9,11 @@
     </div>
 
     <div class="container profile-challenge-box-buttons">
-        <form action="" method="POST">
+        <form action="/priv/achievedSocialChallenge/{{this.id}}" method="POST">
             <button class="challenge-button">Achieved</button>
         </form>
 
-        <form action="" method="POST">
+        <form action="/priv/failedSocialChallenge/{{this.id}}" method="POST">
             <button class="challenge-button red-button">Failed</button>
         </form>
     </div>
