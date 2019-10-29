@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -9,9 +11,8 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const hbs = require('hbs')
 
-
 mongoose
-  .connect('mongodb://localhost/iron-y', { useNewUrlParser: true }) //cambiar el nombre del proyecto
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true }) //cambiar el nombre del proyecto
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
