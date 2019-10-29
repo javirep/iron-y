@@ -19,6 +19,8 @@
         <div class="profile-challenge-partial">
             {{>profilePersonalChallenge}}
         </div>
+        {{else}}
+        <p>You don't have any personal challenge </p>
         {{/each}}
     </div>
 </section>
@@ -31,6 +33,8 @@
         <div class="profile-challenge-partial">
             {{>profileSocialChallenges}}
         </div>
+        {{else}}
+        <p>You don't have any social challenge</p>
         {{/each}}
     </div>
 </section>
