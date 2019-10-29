@@ -110,9 +110,6 @@ router.post("/achievedPersonalChallenge/:id", async (req, res, next) => {
       console.log("Live cannot be over 50 hp")
       const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $set: { hp: 50 } }, { new: true })
     }
-
-
-
     req.session.currentUser = userUpdated
   }
 
@@ -197,6 +194,44 @@ router.get('/socialChallenge/delete/:id', (req, res, next) => {
   User.findByIdAndUpdate({ "_id": userId }, { $pull: { socialChallenges: id } })
     .then(() => res.redirect('/priv/user/'))
 });
+
+router.post("/achievedSocialChallenge/:id", async (req, res, next) => {
+  const challengeId = req.params.id;
+
+  const socialChallenge = await SocialChallenge.findById(challengeId)
+
+  if (socialChallenge.modify === "hp" || socialChallenge.modify === "both") {
+    const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $inc: { hp: socialChallenge.difficulty } }, { new: true })
+
+    if (userUpdated.hp > 50) {
+      console.log("Live cannot be over 50 hp")
+      const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $set: { hp: 50 } }, { new: true })
+    }
+    req.session.currentUser = userUpdated
+  }
+
+  if (socialChallenge.modify === "exp" || socialChallenge.modify === "both") {
+    const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $inc: { exp: socialChallenge.difficulty } }, { new: true })
+
+    req.session.currentUser = userUpdated
+  }
+
+  res.redirect("/priv/user")
+})
+
+router.post("/failedSocialChallenge/:id", async (req, res, next) => {
+  const challengeId = req.params.id;
+
+  const socialChallenge = await SocialChallenge.findById(challengeId)
+
+  if (socialChallenge.modify === "hp" || socialChallenge.modify === "both") {
+    const userUpdated = await User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $inc: { hp: -socialChallenge.difficulty } }, { new: true })
+
+    req.session.currentUser = userUpdated
+  }
+
+  res.redirect("/priv/user")
+})
 
 
 module.exports = router;
