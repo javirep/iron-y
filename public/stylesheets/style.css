@@ -206,10 +206,13 @@ input{
   color: white;
   background: #2D354C;
   padding: 5vw;
+  height: 92vh;
 }
 
-.dark-blue-container{
-
+.white-container{
+  color: black;
+  background: white;
+  height: 75vh;
 }
 
 /*SOCIAL CHALLENGES*/
