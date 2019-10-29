@@ -160,6 +160,9 @@ router.get("/socialChallenges", async (req, res, next) => {
         newChallenges.push(challenge)
       }
     }
+    // if(newChallenges.length === 0){
+
+    // }
     res.render("priv/socialChallenges.hbs", { newChallenges })
   }
   catch (error) {

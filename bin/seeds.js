@@ -14,14 +14,14 @@ const socialChallenges = [
         image: "https://cdn.pixabay.com/photo/2019/01/21/13/58/table-tenis-3946115_960_720.jpg",
     },
     {
-        name: "connectPeople",
+        name: "MeetPeople",
         description: "Este nuevo challenge consiste en acercarte y conocer 5 ironhackers desconocidos hasta el momento. Acercate y comparte! Si quieres ligar, pide numeros de telefono! pero no asustes a nadie por favor! Y sobretodo disfruta y sientate como en casa.",
         modify: "exp",
         difficulty: "medium", 
         image: "https://cdn.pixabay.com/photo/2018/01/26/09/06/personal-3108155__340.jpg",
     },
     {
-        name: "justDance",
+        name: "JustDance",
         description: "Llega el viernes, y con él tu oportunidad de retar tus compañeros a duelos de danza con la switch. Participa y no te quedes apalancado en las gradas! Conectaremos el juego..",
         modify: "hp",
         difficulty: "easy", 
