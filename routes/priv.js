@@ -22,7 +22,7 @@ router.get('/user', async (req, res, next) => {
   const user = await User.findOne({ "_id": id })
     .populate("personalChallenges")
     .populate("socialChallenges")
-  console.log(user)
+  user.bar = user.hp * 2
   res.render("priv/profile.hbs", { user })
 });
 

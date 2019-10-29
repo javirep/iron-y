@@ -4,8 +4,14 @@
         <div class="container name-container">
             <h1>{{user.username}}</h1>
             <div>
-                <p>hp: {{user.hp}} / 50</p>
-                <p>Exp: {{user.exp}}</p>
+                <div class="bar">
+                    <h3 class="absolute"> <i class="fas fa-heart"></i> {{user.hp}} / 50</h3>
+                    <div class="life-bar" style="width:{{user.bar}}%"></div>
+                </div>
+                <div class="bar">
+                    <h3 class="absolute"> exp {{user.exp}}</h3>
+                    <div class="life-bar blue" style="width:{{user.exp}}%"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -39,4 +45,4 @@
     </div>
 </section>
 
-{{>toolbar}} 
+{{>toolbar}}
