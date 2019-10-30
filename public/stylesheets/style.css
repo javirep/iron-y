@@ -37,7 +37,7 @@ h2{
 }
 
 h3{
-  font-size: 18px;
+  font-size: 20px;
 }
 
 p{
@@ -248,8 +248,9 @@ input{
   justify-content: space-between;
 }
 
-.profile-challenge-icons i{
+.profile-challenge-icons > *{
   margin: 0 2vw;
+  font-size: 18px;
 }
 
 .profile-challenge-box-buttons {
