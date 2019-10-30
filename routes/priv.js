@@ -74,12 +74,29 @@ router.get("/editPersonalChallenge/:id", (req, res, next) => {
 })
 
 router.post("/editPersonalChallenge/:id", (req, res, next) => {
+  console.log("going the right route")
   const { id } = req.params
   const { name, description, modify, difficulty } = req.body
 
   if (!name || !description || !modify || !difficulty) {
-    res.render("priv/editPersonalChallenge", { personalChallenge })
+    console.log("missing fields")
+
+    //esta pagina no redirige... 
+    res.render("auth/login.hbs")
+
+    console.log("Why is this being printed?")
+
+    // me encantaría hacer un res.render con un error message, pero no funciona.
+    /*PersonalChallenge.findById(id)
+      .then(personalChallenge => {
+        console.log("entered the then")
+        personalChallenge.errorMessage = "You have to fill all the fields of the form"
+        res.redirect("/")
+      })
+      .catch(err => "error editing the personal challenge: " + err)*/
   }
+
+  console.log("exited the if")
 
   PersonalChallenge.update({ "_id": id }, {
     $set: {

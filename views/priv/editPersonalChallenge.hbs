@@ -1,8 +1,8 @@
 <div class="dark-blue-container">
     <h1>New Challenge!</h1>
     <div class="white-container">
-        <form id="challenge-form" class="container" action="/priv/editPersonalChallenge/{{personalChallenge.id}}"
-            method="POST">
+        <form id="challenge-form" action="/priv/editPersonalChallenge/{{personalChallenge.id}}" method="POST"
+            class="container">
             <h2 for="">Name:</h2>
             <input type="text" name="name" placeholder="What is you new Challenge?" value="{{personalChallenge.name}}">
 
@@ -23,6 +23,11 @@
                 <input type="radio" name="difficulty" value=3> Medium
                 <input type="radio" name="difficulty" value=5> Hard
             </div>
+
+            {{#if personalChallenge.errorMessage}}
+            <h5>{{personalChallenge.errorMessage}}</h5>
+            {{/if}}
+
 
             <button class="yellow-button" type="submit">Add the challenge</button>
         </form>

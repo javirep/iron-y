@@ -19,7 +19,7 @@
 </div>
 
 <section class="container profile-challenges-section">
-    <h2>Personal Challenges</h2>
+    <h2>Personal Challenges ({{user.personalChallenges.length}})</h2>
     <div>
         {{#each user.personalChallenges}}
         <div class="profile-challenge-partial">
@@ -33,7 +33,7 @@
 
 
 <section class="container profile-challenges-section">
-    <h2>Social Challenges</h2>
+    <h2>Social Challenges ({{user.socialChallenges.length}})</h2>
     <div>
         {{#each user.socialChallenges}}
         <div class="profile-challenge-partial">
