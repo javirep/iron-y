@@ -259,5 +259,8 @@ router.post("/failedSocialChallenge/:id", async (req, res, next) => {
   res.redirect("/priv/user")
 })
 
+router.get("/editProfile", (req, res, next) => {
+  res.render('priv/editProfile.hbs')
+})
 
 module.exports = router;
