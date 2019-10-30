@@ -24,6 +24,10 @@ body{
   align-items: center;
 }
 
+.toolbar a {
+  width: 33.33%;
+}
+
 h1, h2, h3, h4, h5{
   font-weight: normal;
 }
@@ -82,7 +86,7 @@ a{
 }
 
 .logo {
-  width: 70%;
+  width: 60%;
   max-width: 300px;
   transform: rotate(32deg);
 }
@@ -278,7 +282,9 @@ input{
   color: white;
   background: #2D354C;
   padding: 5vw;
-  height: 92vh;
+  height: auto;
+  min-height: 92vh;
+  padding-bottom: 60px;
 }
 
 .white-container{
@@ -286,7 +292,9 @@ input{
   background: white;
   padding: 5vw;
   padding-top: 0;
-  height: 75vh;
+  height: auto;
+  min-height: 75vh;
+  margin-bottom: 30px;
 }
 
 #challenge-form{
