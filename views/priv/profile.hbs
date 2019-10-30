@@ -16,6 +16,15 @@
         </div>
     </div>
     <h5>{{user.motivSentence}}</h5>
+
+    <div class="profile-buttons">
+        <form action="/auth/logout" method="POST">
+            <button class="yellow-button">Logout</button>
+        </form>
+        <form action="" method="POST">
+            <button class="yellow-button">Edit profile</button>
+        </form>
+    </div>
 </div>
 
 <section class="container profile-challenges-section">
@@ -26,13 +35,13 @@
             {{>profilePersonalChallenge}}
         </div>
         {{else}}
-        <p>You don't have any personal challenge </p>
+        <a class="add-one" href="/priv/addPersonalChallenge">Add one</a>
         {{/each}}
     </div>
 </section>
 
 
-<section class="container profile-challenges-section">
+<section class="container profile-challenges-section scroll">
     <h2>Social Challenges ({{user.socialChallenges.length}})</h2>
     <div>
         {{#each user.socialChallenges}}
@@ -40,7 +49,7 @@
             {{>profileSocialChallenges}}
         </div>
         {{else}}
-        <p>You don't have any social challenge</p>
+        <a class="add-one" href="/priv/socialChallenges">Add one</a>
         {{/each}}
     </div>
 </section>

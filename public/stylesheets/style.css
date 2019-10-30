@@ -15,7 +15,7 @@ body{
 
 .toolbar {
   background-color: rgb(238, 234, 234);
-  height: 10vh;
+  height: 60px;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -83,6 +83,7 @@ a{
 
 .logo {
   width: 70%;
+  max-width: 300px;
   transform: rotate(32deg);
 }
 
@@ -101,6 +102,7 @@ a{
   text-align: center;
   box-shadow: 3px 3px 2px #2D354C;
   width:80vw;
+  max-width: 400px;
   font-size: 24px;
 }
 
@@ -116,6 +118,7 @@ input{
   border-bottom: 2px solid #2D354C;
   height: 60px;
   width: 80vw;
+  max-width: 400px;
   text-align: center;
   font-size: 24px;
 }
@@ -124,7 +127,27 @@ input{
   font-size: 18px;
 }
 
+.paragraf {
+  margin: 15px 0;
+}
+
+
 /* PROFILE STYLE! */
+
+.profile-buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.add-one {
+  margin-left: 2vw;
+}
+
+.profile-buttons form {
+  margin-right: 15px;
+  margin-top: 10px;
+}
 
 .main-profile-container{
   padding: 3vw;
@@ -353,16 +376,22 @@ textarea{
   background-color: #E2D029;
   border: 1px solid #2d354c;
   box-shadow: 3px 3px 2px #2D354C;
+  color: #2D354C;
 }
 
 .challenge-detail{
   color: white;
   background: #2D354C;
   padding: 5vw;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
 }
 
 .challenge-detail img {
   width: 90vw;
   margin: 20px 0;
+}
+
+.scroll{
+  padding-bottom: 90px;
 }

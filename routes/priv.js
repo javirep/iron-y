@@ -188,12 +188,19 @@ router.get("/socialChallenges", async (req, res, next) => {
 })
 
 
-router.get('/socialChallengeDetail/:id', (req, res, next) => {
-  const { id } = req.params;
-  SocialChallenge.findById(id)
-    .then(data => { res.render("priv/socialChallengeDetail.hbs", { data }) })
-    .catch(error => { console.log('Error finding socialChallenge', error) })
+router.get('/socialChallengeDetail/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const usersWithChallenge = await User.find({ socialChallenges: id })
+    console.log(usersWithChallenge)
+    const data = await SocialChallenge.findById(id)
+    res.render("priv/socialChallengeDetail.hbs", { data, usersWithChallenge })
+  }
+  catch (error) {
+    console.log('Error finding socialChallenge', error)
+  }
 })
+
 
 
 router.post('/addSocialChallenge/:id', (req, res, next) => {
