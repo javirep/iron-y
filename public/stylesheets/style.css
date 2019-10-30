@@ -137,6 +137,15 @@ input{
   align-items: center;
 }
 
+.add-one {
+  margin-left: 2vw;
+}
+
+.profile-buttons form {
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
 .main-profile-container{
   padding: 3vw;
   color: white;
