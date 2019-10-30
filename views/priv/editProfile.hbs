@@ -1,5 +1,29 @@
 <section class="dark-blue-container">
     <h1>Edit your profile</h1>
+    <div class="white-container">
+
+        <form action="/priv/addphoto" method="POST" enctype="multipart/form-data">
+            <label for="image">
+                <img class="user-img" src="{{user.imgPath}}">
+                <input style="display:none" onchange="this.form.submit()" type="file" name="image" id="image">
+                <span class="yellow-button">Edit photo</span>
+            </label>
+        </form>
+
+        <form id="challenge-form" action="/priv/editProfile" method="POST" class="container">
+            <h2 for="">Name:{{user.userName}}</h2>
+
+            <h2 for="">Motivational sentence:</h2>
+            <textarea form="challenge-form" name="motivSentence">{{user.motivSentence}}</textarea>
+
+            {{#if user.errorMessage}}
+            <h3 class="error-message">{{user.errorMessage}}</h3>
+            {{/if}}
+
+            <button class="yellow-button" type="submit">Edit!</button>
+        </form>
+    </div>
+
 
 </section>
 

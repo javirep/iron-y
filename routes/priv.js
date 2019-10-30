@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+const parser = require('../config/cloudinary');
 const User = require("../models/User")
 const PersonalChallenge = require("../models/PersonalChallenge")
 const SocialChallenge = require("../models/SocialChallenge")
@@ -82,7 +82,6 @@ router.get("/editPersonalChallenge/:id", (req, res, next) => {
 })
 
 router.post("/editPersonalChallenge/:id", (req, res, next) => {
-  console.log("going the right route")
   const { id } = req.params
   const { name, description, modify, difficulty } = req.body
 
@@ -96,9 +95,6 @@ router.post("/editPersonalChallenge/:id", (req, res, next) => {
       .catch(err => "error editing the personal challenge: " + err)
   }
   else {
-
-    console.log("exited the if")
-
     PersonalChallenge.update({ "_id": id }, {
       $set: {
         name, description, modify, difficulty
@@ -260,7 +256,34 @@ router.post("/failedSocialChallenge/:id", async (req, res, next) => {
 })
 
 router.get("/editProfile", (req, res, next) => {
-  res.render('priv/editProfile.hbs')
+  const id = req.session.currentUser
+
+  User.findById(id)
+    .then(user => res.render("priv/editProfile.hbs", { user }))
 })
+
+router.post("/editProfile", (req, res, next) => {
+  const id = req.session.currentUser;
+  const { motivSentence } = req.body;
+  console.log(req.body)
+  console.log(motivSentence)
+
+  User.findOneAndUpdate({ "_id": id }, { "motivSentence": motivSentence })
+    .then(res.redirect("/priv/user"))
+})
+
+router.post("/addphoto", parser.single("image"), async (req, res, next) => {
+  try {
+    const image = req.file.secure_url;
+    const { _id } = req.session.currentUser;
+    await User.findByIdAndUpdate(_id, { imgPath: image });
+    user = await User.findById(_id);
+    req.session.currentUser = user;
+    return res.redirect("/priv/editProfile");
+  } catch (err) {
+    next(err);
+  }
+}
+)
 
 module.exports = router;
