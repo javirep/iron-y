@@ -4,7 +4,7 @@
         <form id="challenge-form" action="/priv/editPersonalChallenge/{{personalChallenge.id}}" method="POST"
             class="container">
             <h2 for="">Name:</h2>
-            <input type="text" name="name" placeholder="What is you new Challenge?" value="{{personalChallenge.name}}">
+            <input type="text" name="name" placeholder="Add a name" value="{{personalChallenge.name}}">
 
             <h2 for="">Description:</h2>
             <textarea form="challenge-form" name="description"
@@ -25,11 +25,11 @@
             </div>
 
             {{#if personalChallenge.errorMessage}}
-            <h5>{{personalChallenge.errorMessage}}</h5>
+            <h3 class="error-message">{{personalChallenge.errorMessage}}</h3>
             {{/if}}
 
 
-            <button class="yellow-button" type="submit">Add the challenge</button>
+            <button class="yellow-button" type="submit">Edit!</button>
         </form>
     </div>
 </div>

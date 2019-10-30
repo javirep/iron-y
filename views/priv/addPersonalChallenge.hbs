@@ -3,7 +3,7 @@
     <div class="white-container">
         <form id="challenge-form" class="container" action="/priv/addPersonalChallenge" method="POST">
             <h2 for="">Name:</h2>
-            <input type="text" name="name" placeholder="What is you new Challenge?">
+            <input type="text" name="name" placeholder="Add a name">
 
             <h2 for="">Description:</h2>
             <textarea form="challenge-form" name="description"
@@ -23,7 +23,11 @@
                 <input type="radio" name="difficulty" value=5> Hard
             </div>
 
-            <button class="yellow-button" type="submit">Add the challenge</button>
+            {{#if errorMessage}}
+            <h3 class="error-message">{{errorMessage}}</h3>
+            {{/if}}
+
+            <button class="yellow-button" type="submit">Add!</button>
         </form>
     </div>
 </div>

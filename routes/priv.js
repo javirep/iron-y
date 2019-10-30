@@ -34,21 +34,29 @@ router.get("/addPersonalChallenge", (req, res, next) => {
 router.post("/addPersonalChallenge", (req, res, next) => {
   console.log("entered the route")
   const { name, description, modify, difficulty } = req.body
-  const personalChallenge = new PersonalChallenge({
-    name,
-    description,
-    modify,
-    difficulty
-  })
-  personalChallenge.save(function (err, personalChallenge) {
-    if (err) return console.error(err);
-    console.log(personalChallenge.name + " saved in the DB.");
-  });
 
-  User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $push: { personalChallenges: personalChallenge.id } }, { new: true })
-    .then(user => console.log("I dont know what this is for, but without this then it doesn't work"))
+  if (name && description && modify && difficulty) {
+    const personalChallenge = new PersonalChallenge({
+      name,
+      description,
+      modify,
+      difficulty
+    })
+    personalChallenge.save(function (err, personalChallenge) {
+      if (err) return console.error(err);
+      console.log(personalChallenge.name + " saved in the DB.");
+    });
 
-  res.redirect("/priv/user/")
+    User.findOneAndUpdate({ "_id": req.session.currentUser._id }, { $push: { personalChallenges: personalChallenge.id } }, { new: true })
+      .then(user => console.log("I dont know what this is for, but without this then it doesn't work"))
+
+    res.redirect("/priv/user/")
+  } else {
+    res.render("priv/addPersonalChallenge.hbs", {
+      errorMessage: "Please fill all the fields"
+    })
+  }
+
 })
 
 router.get("/deletePersonalChallenge/:challengeId", (req, res, next) => {
@@ -79,32 +87,26 @@ router.post("/editPersonalChallenge/:id", (req, res, next) => {
   const { name, description, modify, difficulty } = req.body
 
   if (!name || !description || !modify || !difficulty) {
-    console.log("missing fields")
 
-    //esta pagina no redirige... 
-    res.render("auth/login.hbs")
-
-    console.log("Why is this being printed?")
-
-    // me encantaría hacer un res.render con un error message, pero no funciona.
-    /*PersonalChallenge.findById(id)
+    PersonalChallenge.findById(id)
       .then(personalChallenge => {
-        console.log("entered the then")
-        personalChallenge.errorMessage = "You have to fill all the fields of the form"
-        res.redirect("/")
+        personalChallenge.errorMessage = "Please fill all the fields"
+        res.render("priv/editPersonalChallenge", { personalChallenge })
       })
-      .catch(err => "error editing the personal challenge: " + err)*/
+      .catch(err => "error editing the personal challenge: " + err)
   }
+  else {
 
-  console.log("exited the if")
+    console.log("exited the if")
 
-  PersonalChallenge.update({ "_id": id }, {
-    $set: {
-      name, description, modify, difficulty
-    }
-  })
-    .then(() => res.redirect("/priv/user"))
-    .catch(err => console.log("error updating the personal challenge: " + err))
+    PersonalChallenge.update({ "_id": id }, {
+      $set: {
+        name, description, modify, difficulty
+      }
+    })
+      .then(() => res.redirect("/priv/user"))
+      .catch(err => console.log("error updating the personal challenge: " + err))
+  }
 })
 
 router.get("/user/personalChallenge/:id", (req, res, next) => {
