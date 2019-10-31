@@ -36,7 +36,7 @@ h1{
   font-size: 30px;
 }
 
-h2{
+h2{    
   font-size: 24px;
 }
 
@@ -55,10 +55,9 @@ p{
   align-items: center;
 }
 
-.entrance h1{
-  padding: 2vh;
-  padding-top: 4vh;
-  font-size: 6vw;
+.animated-title{
+  margin: 2vh;
+  font-size: 5.5vw;
   text-align: center;
 }
 
@@ -443,6 +442,31 @@ textarea{
   justify-content: space-between;
 }
 
+.animated-title{
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.eslogan{
+  margin-top: 6vh;
+  animation: type 3s steps(25);
+}
+
+.eslogan2{
+  width:0ch;
+  animation: type 3s steps(20) 3s forwards;
+}
+
+@keyframes type {
+  0% {
+    width:0ch;
+  }
+  100% {
+    width:25ch;
+  }
+}
+
 .scroll{
   padding-bottom: 90px;
 }
+
