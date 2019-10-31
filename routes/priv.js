@@ -202,7 +202,7 @@ router.get('/socialChallengeDetail/:id', async (req, res, next) => {
 router.post('/addSocialChallenge/:id', (req, res, next) => {
   const { id } = req.params;
   const userId = req.session.currentUser;
-  SocialChallenge.findById(id)
+
   User.findOneAndUpdate({ "_id": userId }, { $push: { socialChallenges: id } }, { new: true })
     .then(res.redirect("/priv/socialChallenges"))
     .catch(error => { console.log(error) })
