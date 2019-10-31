@@ -2,7 +2,7 @@
     <h1>Edit your profile</h1>
     <div class="white-container">
 
-        <form action="/priv/addphoto" method="POST" enctype="multipart/form-data">
+        <form class="user-photo-form" action="/priv/addphoto" method="POST" enctype="multipart/form-data">
             <label for="image">
                 <img class="user-img" src="{{user.imgPath}}">
                 <input style="display:none" onchange="this.form.submit()" type="file" name="image" id="image">
@@ -13,7 +13,7 @@
         <form id="challenge-form" action="/priv/editProfile" method="POST" class="container">
             <h2 for="">Name: {{user.username}}</h2>
 
-            <h3 for="">Motivational sentence:</h3>
+            <h2 for="">Motivational sentence:</h2>
             <textarea form="challenge-form" name="motivSentence">{{user.motivSentence}}</textarea>
 
             {{#if user.errorMessage}}
