@@ -407,6 +407,12 @@ textarea{
 
 /*EDIT PROFILE*/
 
+.personal-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+}
 
 .scroll{
   padding-bottom: 90px;
