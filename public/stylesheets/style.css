@@ -298,6 +298,7 @@ input{
 }
 
 .white-container{
+  position: relative;
   color: black;
   background: white;
   padding: 5vw;
@@ -311,14 +312,14 @@ input{
   align-items: flex-start;
 }
 
-.dark-blue-container h1{
+.dark-blue-container > h1{
   width: 100%;
   font-weight: normal;
   text-align: center;
   margin-bottom: 5vw;
 }
 
-#challenge-form h2{
+#challenge-form > h2{
   margin: 4vw 0 2vw;
 }
 
@@ -402,6 +403,18 @@ textarea{
   color: #2D354C;
 }
 
+.call-to-action{
+  text-align: center;
+  height: 5vh;
+  width: 10vh;
+  margin-bottom: 4vh;
+  left: 0;
+  right: 0;
+  margin: 10px auto;
+  bottom: 0;
+  position: absolute;
+}
+
 .challenge-detail{
   color: white;
   background: #2D354C;
@@ -428,7 +441,6 @@ textarea{
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  
 }
 
 .scroll{
