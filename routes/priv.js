@@ -197,16 +197,12 @@ router.get('/socialChallengeDetail/:id', async (req, res, next) => {
   }
 })
 
-
-
 router.post('/addSocialChallenge/:id', async (req, res, next) => {
   const { id } = req.params;
   const userId = req.session.currentUser._id;
   let updUser = await User.findOneAndUpdate({ "_id": userId }, { $push: { socialChallenges: id } }, { new: true })
   res.redirect("/priv/socialChallenges")
 })
-
-
 
 router.get('/socialChallenge/delete/:id', (req, res, next) => {
   const { id } = req.params;

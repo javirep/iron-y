@@ -55,6 +55,19 @@ p{
   align-items: center;
 }
 
+.entrance h1{
+  padding: 2vh;
+  padding-top: 4vh;
+  font-size: 6vw;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .entrance h1 {
+     font-size: 24px;
+  }
+}
+
 a{
   text-decoration: none;
   cursor: pointer;
@@ -86,13 +99,9 @@ a{
 }
 
 .logo {
-  width: 60%;
+  width: 30vh;
   max-width: 300px;
   transform: rotate(32deg);
-}
-
-.div-logo {
-  height: 65%;
 }
 
 .btn {
@@ -171,6 +180,7 @@ input{
   height: 35vw;
   max-width: 200px;
   max-height: 200px;
+  border: 2px solid white;
 }
 
 .name-container{
@@ -412,6 +422,13 @@ textarea{
   flex-direction: column;
   justify-content: space-between;
   height: 350px;
+}
+.user-photo-form label{
+  padding-top: 2vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  
 }
 
 .scroll{
