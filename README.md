@@ -1,18 +1,18 @@
 # iron-y
 
 ## Description
-iron-y is a responsive web page were users can create/read/update/delete (CRUD) different challenges during their time in ironhack (i.e. making their pull-request on time or sleeping a decent amount of time). By joining and achieving this challenges ironhack students will increase their motivation and mental health, so what are you waiting to join iron-y?
+iron-y is a mobile app were users can create/read/update/delete (CRUD) different challenges during their time in ironhack (i.e. making their pull-request on time or sleeping a decent amount of time). By joining and achieving this challenges students will increase their motivation and mental health, so what are you waiting to join iron-y?
 
 ## MVP
-- Using 3 Schemes (Users, PersonalChallenges, SocialChallenges);
-- Doing a Sign up & Log in wireframes with validations in the front-end and back-end
-- To give the user the posibility of creating, reading, updating and deleting their personal challenges. 
--To give the user the posibility of reading and joining social challenges.
+- Allowing users to sign up and log in, while recording their data in a data base (using MongoDB / Atlas). 
+- The sign up and log in must have minimum validation requirements. 
+- The user should have the posibility of creating, reading, updating and deleting (CRUD) personal challenges.
+- The user should have the posibility of joining social challenges already created by us.
+- The user should be able of modifying his/her personal info and profile image. His/her profile images will be storage in a cloud (cloudinary)
 
 ## Backlog
-- User will have a given life and experience which will be modified as they complete their challenges
+- Completing or failing the challenges will result in life / experience gain or lost by the user. 
 - The logo of the landing page will contain animation features. 
-- Profile Update
 
 ## Data Structure:
 ```
@@ -75,19 +75,15 @@ post("/social-challenge-join)
   - Social Challenges List
   - Challenge Details
   
-  ## States y States Transitions
-Not MVP. TBD in a later stage
-
-
 ### Git
 URls for the project repo and deploy
-[Link Repo](http://github.com)
-[Link Deploy](http://github.com)
+[Link Repo](https://github.com/javirep/iron-y)
+[Link Deploy](https://iron-y.herokuapp.com/)
 
 
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com](http://slides.com)
+[Link Slides.com](https://docs.google.com/presentation/d/1jnZN63kbEE9yj2-IEGzcw2-tsDWi1SK2FF4h5Yz_kyk/edit?usp=sharing)
 
        
        
