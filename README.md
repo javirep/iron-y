@@ -77,13 +77,13 @@ post("/social-challenge-join)
   
 ### Git
 URls for the project repo and deploy
-[Link Repo](https://github.com/javirep/iron-y)
-[Link Deploy](https://iron-y.herokuapp.com/)
+ - [Link Repo](https://github.com/javirep/iron-y)
+ - [Link Deploy](https://iron-y.herokuapp.com/)
 
 
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com](https://docs.google.com/presentation/d/1jnZN63kbEE9yj2-IEGzcw2-tsDWi1SK2FF4h5Yz_kyk/edit?usp=sharing)
+ - [Link Slides.com](https://docs.google.com/presentation/d/1jnZN63kbEE9yj2-IEGzcw2-tsDWi1SK2FF4h5Yz_kyk/edit?usp=sharing)
 
        
        
